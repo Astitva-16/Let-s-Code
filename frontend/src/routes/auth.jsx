@@ -173,7 +173,7 @@ export default function AuthPage() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-primary shadow-sm">
               <Code2 className="h-4 w-4" />
             </span>
-            Back to CodeArena
+            Back to Let's Code
           </Link>
 
           <div className="max-w-xl space-y-8">
@@ -187,7 +187,7 @@ export default function AuthPage() {
                   Join the workspace where code, questions, and people stay connected.
                 </h1>
                 <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
-                  CodeArena is where developers compete, collaborate, and build in real time.
+                  Let's Code is where developers compete, collaborate, and build in real time.
                   From live code execution to multiplayer battles, everything is designed to make coding feel exciting and competitive.
                 </p>
               </div>
@@ -310,7 +310,7 @@ export default function AuthPage() {
                 </Field>
 
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Use the same feature-service account you created for CodeArena.</span>
+                  <span>Use the same feature-service account you created for Let's Code.</span>
                   <button
                     type="button"
                     onClick={() => switchMode("signup")}
@@ -432,7 +432,7 @@ export default function AuthPage() {
             )}
 
             <p className="mt-6 text-center text-xs text-muted-foreground">
-              By continuing, you agree to the CodeArena workflow for challenges and collaboration.
+              By continuing, you agree to the Let's Code workflow for challenges and collaboration.
             </p>
           </Card>
         </section>

@@ -1,5 +1,8 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "Let's Code-frontend",
+  "version": "1.0.0",
+  "description": "Frontend UI for Let's Code competitive coding platform",
+  "author": "Astitva Garg <astitva1216@gmail.com>",
   "private": true,
   "sideEffects": false,
   "type": "module",

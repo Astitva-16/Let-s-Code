@@ -1,6 +1,7 @@
 {
-  "name": "backend",
+  "name": "Let's Code-feature-service",
   "version": "1.0.0",
+  "description": "Feature & matchmaking service for Let's Code competitive coding platform",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,13 +10,18 @@
     "start": "node -r dotenv/config src/index.js",
     "yjs:server": "node src/yjs-server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Let's Code",
+    "feature-service",
+    "socketio",
+    "yjs"
+  ],
+  "author": "Astitva Garg <astitva1216@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.16.0",
     "bcrypt": "^6.0.0",
-    "cloudinary": "^2.9.0",
+    "cloudinary": "^2.11.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.1",
@@ -33,6 +39,5 @@
     "y-websocket": "^3.0.0",
     "y-websocket-server": "^1.0.2",
     "yjs": "^13.6.30"
-  },
-  "description": ""
+  }
 }

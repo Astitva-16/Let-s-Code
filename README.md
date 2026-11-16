@@ -1,4 +1,4 @@
-# ⚔️ CodeArena
+# ⚔️ Let's Code
 
 > A real-time competitive coding platform where developers can battle head-to-head, solve coding problems, and compete through live WebSocket-powered matches.
 
@@ -6,7 +6,7 @@
 
 # Overview
 
-CodeArena is a full-stack competitive programming platform designed for real-time coding battles.
+Let's Code is a full-stack competitive programming platform designed for real-time coding battles.
 
 Users can:
 
@@ -19,11 +19,11 @@ Users can:
 The project follows a service-oriented architecture with separate services for:
 
 * API handling
-* Realtime socket communication
+* Realtime socket communication & matchmaking
 * Code execution
 * Frontend delivery
 
-CodeArena focuses on realtime interaction, scalable backend communication, and modular deployment.
+Let's Code focuses on realtime interaction, scalable backend communication, and modular deployment.
 
 ---
 
@@ -46,16 +46,19 @@ CodeArena focuses on realtime interaction, scalable backend communication, and m
 
 ## Frontend
 
-* React
+* React 19
 * Vite
 * Tailwind CSS
 * Socket.IO Client
+* Monaco Editor
+* Yjs (Collaborative Editing)
 
 ## Backend
 
 * Node.js
 * Express.js
 * Socket.IO
+* BullMQ
 * MongoDB
 * Redis
 
@@ -87,9 +90,8 @@ CodeArena focuses on realtime interaction, scalable backend communication, and m
  │                 │
  │                 │
 ▼▼                 ▼
-WebSocket      Code Execution
-Service         Service
-(Socket.IO)      
+Feature Service    Code Execution
+(Socket.IO & Yjs)  Service (BullMQ)
 
           │
           ▼
@@ -102,15 +104,14 @@ Service         Service
 # Project Structure
 
 ```txt
-CodeArena/
+Let's Code/
 │
-├── frontend/                 # React frontend
+├── frontend/                     # React + Vite frontend
 │
-├── api-gateway/              # Main backend APIs
-│
-├── websocket-service/        # Socket.IO realtime service
-│
-├── code-execution-service/   # Code execution handling
+├── backend/
+│   ├── api-gateway/              # Reverse proxy & API Gateway
+│   ├── code-runner-service/      # Code execution worker & queue
+│   └── feature-service/          # Users, questions, chat, matchmaking, Yjs
 │
 ├── docker-compose.yml
 │
@@ -121,17 +122,17 @@ CodeArena/
 
 # Realtime Communication
 
-CodeArena uses Socket.IO for realtime interactions between players.
+Let's Code uses Socket.IO and Yjs for realtime interactions between players.
 
 Realtime functionality includes:
 
 * Match creation
 * Match updates
-* Live status synchronization
+* Live collaborative code editor synchronization
 * Submission events
-* Match result updates
+* In-arena real-time chat
 
-The websocket layer allows both players to stay synchronized during active coding sessions.
+The websocket layer allows players to stay synchronized during active coding sessions.
 
 ---
 
@@ -150,23 +151,10 @@ Users can write and submit code directly from the browser.
 The backend execution service:
 
 * Receives submissions
+* Enqueues tasks in BullMQ
 * Processes execution requests
 * Returns execution results
 * Handles multiple programming languages
-
----
-
-# API Architecture
-
-The backend follows a modular service structure.
-
-Example API responsibilities include:
-
-* Authentication
-* User management
-* Match handling
-* Submission handling
-* Match history
 
 ---
 
@@ -174,8 +162,8 @@ Example API responsibilities include:
 
 ## Prerequisites
 
-* Node.js
-* Docker
+* Node.js (v18+ recommended)
+* Docker & Docker Compose (optional for containerized setup)
 * MongoDB
 * Redis
 
@@ -186,39 +174,39 @@ Example API responsibilities include:
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/codearena.git
-cd codearena
+git clone https://github.com/astitva1216/Let's Code.git
+cd Let's Code
 ```
 
 ---
 
 # Install Dependencies
 
-## Frontend
+### 1. Frontend
 
 ```bash
 cd frontend
 npm install
 ```
 
-## API Gateway
+### 2. API Gateway
 
 ```bash
-cd api-gateway
+cd ../backend/api-gateway
 npm install
 ```
 
-## WebSocket Service
+### 3. Code Runner Service
 
 ```bash
-cd websocket-service
+cd ../code-runner-service
 npm install
 ```
 
-## Code Execution Service
+### 4. Feature Service
 
 ```bash
-cd code-execution-service
+cd ../feature-service
 npm install
 ```
 
@@ -232,35 +220,33 @@ docker-compose up --build
 
 ---
 
-# Run Frontend
+# Run Locally (Without Docker)
+
+### Run Frontend
 
 ```bash
 cd frontend
 npm run dev
 ```
 
----
-
-# Run Backend Services
-
-## API Gateway
+### Run API Gateway
 
 ```bash
-cd api-gateway
+cd backend/api-gateway
 npm run dev
 ```
 
-## WebSocket Service
+### Run Code Runner Service
 
 ```bash
-cd websocket-service
+cd backend/code-runner-service
 npm run dev
 ```
 
-## Code Execution Service
+### Run Feature Service
 
 ```bash
-cd code-execution-service
+cd backend/feature-service
 npm run dev
 ```
 
@@ -272,11 +258,11 @@ Example environment variables:
 
 ```env
 PORT=8000
-MONGO_URI=your_mongodb_uri
-REDIS_URL=your_redis_url
-JWT_SECRET=your_secret
+MONGODB_URI=your_mongodb_uri
+REDIS_HOST=localhost
+REDIS_PORT=6379
+JWT_SECRET=your_jwt_secret
 CLIENT_URL=http://localhost:5173
-WEBSOCKET_URL=your_websocket_url
 ```
 
 ---
@@ -285,19 +271,13 @@ WEBSOCKET_URL=your_websocket_url
 
 ## Frontend
 
-Deployed using:
-
 * Vercel
 
 ## Backend Services
 
-Deployed using:
-
 * Render
 
 ## Local Infrastructure
-
-Managed through:
 
 * Docker Compose
 
@@ -315,15 +295,8 @@ Managed through:
 
 ---
 
-# Why This Project Matters
+# Author
 
-CodeArena demonstrates:
-
-* Realtime system design
-* WebSocket communication
-* Multi-service backend architecture
-* Distributed deployment workflow
-* Dockerized development environments
-* Full-stack application development
-* Scalable backend communication patterns
-
+**Astitva Garg**
+* GitHub: [@astitva1216](https://github.com/astitva1216)
+* Email: [astitva1216@gmail.com](mailto:astitva1216@gmail.com)

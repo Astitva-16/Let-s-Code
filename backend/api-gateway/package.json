@@ -1,7 +1,7 @@
 {
-  "name": "api-gateway",
+  "name": "Let's Code-api-gateway",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Gateway for Let's Code competitive coding platform",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,8 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node -r dotenv/config src/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Let's Code",
+    "api-gateway",
+    "express"
+  ],
+  "author": "Astitva Garg <astitva1216@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.6",

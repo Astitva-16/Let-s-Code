@@ -69,7 +69,7 @@ export function Navbar({ onOpenChat, setQuestionAdded, questionAdded }) {
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4">
         <Link to="/" className="flex items-center gap-2 font-semibold">
           <span className="hidden lg:inline text-2xl font-semibold">
-            CodeArena
+            Let's Code
           </span>
         </Link>
 

@@ -126,7 +126,7 @@ export function ChatSidebar({
             <div>
               <h2 className="text-sm font-semibold leading-none">Messages</h2>
               <p className="mt-1 text-[11px] text-muted-foreground">
-                Chat with your CodeArena connections
+                Chat with your Let's Code connections
               </p>
             </div>
           </div>
